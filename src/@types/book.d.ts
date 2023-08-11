@@ -40,13 +40,14 @@ declare global {
 
   export interface BookSearchDTO {
     page: number;
-    isbn: string,
-    author: string,
-    title: string,
-    genre: string,
-    publicationDate: Date,
-    price: number,
-    quantity: number,
+    pageSize: number;
+    isbn?: string,
+    author?: string,
+    title?: string,
+    genre?: string,
+    publicationDate?: Date,
+    price?: number,
+    quantity?: number,
   }
 
   export interface BookSearchQuery {

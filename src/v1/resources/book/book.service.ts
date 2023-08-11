@@ -59,6 +59,8 @@ export default class BookService extends Service {
   };
 
   public search = async ({
+    page = 0,
+    pageSize = 10,
     isbn,
     author,
     title,
@@ -77,9 +79,18 @@ export default class BookService extends Service {
     if (price) query.price = price;
     if (quantity) query.quantity = quantity;
 
-    const results = await this.Book.find(query);
+    const count = await this.Book.countDocuments(query);
 
-    return results;
+    const results = await this.Book
+      .find(query)
+      .limit(pageSize)
+      .skip(page);
+
+    return {
+      page: +page,
+      count,
+      books: results,
+    };
   };
 
   public delete = async ({

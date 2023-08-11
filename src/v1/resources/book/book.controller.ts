@@ -69,6 +69,8 @@ export default class BookController extends Controller {
   public search = async (req: Request, res: Response) => {
     const {
       query: {
+        page,
+        pageSize,
         isbn,
         author,
         title,
@@ -82,6 +84,8 @@ export default class BookController extends Controller {
     req.message = 'Searched books';
     req.operation = this.service.search;
     req.args = {
+      page,
+      pageSize,
       isbn,
       author,
       title,
