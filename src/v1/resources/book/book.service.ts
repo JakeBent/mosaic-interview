@@ -10,6 +10,14 @@ export default class BookService extends Service {
     price,
     quantity,
   }: BookCreateDTO) => {
+    const existingBook = await this.Book.findOne({ isbn });
+
+    if (existingBook) {
+      existingBook.quantity += 1;
+      await existingBook.save();
+      return existingBook;
+    }
+
     const book = await this.Book.create({
       isbn,
       author,
