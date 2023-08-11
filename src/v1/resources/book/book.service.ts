@@ -30,4 +30,31 @@ export default class BookService extends Service {
 
     return book;
   };
+
+  public update = async ({
+    bookId,
+    isbn,
+    author,
+    title,
+    genre,
+    publicationDate,
+    price,
+    quantity,
+  }: BookUpdateDTO) => {
+    const book = await this.Book.findByIdAndUpdate(
+      bookId,
+      {
+        isbn,
+        author,
+        title,
+        genre,
+        publicationDate: new Date(publicationDate),
+        price,
+        quantity,
+      },
+      { new: true },
+    );
+
+    return book;
+  };
 }

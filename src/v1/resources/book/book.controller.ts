@@ -33,4 +33,36 @@ export default class BookController extends Controller {
 
     res.exec();
   };
+
+  public update = async (req: Request, res: Response) => {
+    const {
+      body: {
+        isbn,
+        author,
+        title,
+        genre,
+        publicationDate,
+        price,
+        quantity,
+      },
+      params: {
+        bookId,
+      },
+    } = req;
+
+    req.message = 'Updated book';
+    req.operation = this.service.update;
+    req.args = {
+      bookId,
+      isbn,
+      author,
+      title,
+      genre,
+      publicationDate,
+      price,
+      quantity,
+    };
+
+    res.exec();
+  };
 }

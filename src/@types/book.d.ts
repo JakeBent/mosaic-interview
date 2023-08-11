@@ -22,4 +22,15 @@ declare global {
     price: number,
     quantity: number,
   }
+
+  export interface BookUpdateDTO {
+    bookId: string;
+    isbn: string,
+    author: string,
+    title: string,
+    genre: string,
+    publicationDate: Date,
+    price: number,
+    quantity: number,
+  }
 }

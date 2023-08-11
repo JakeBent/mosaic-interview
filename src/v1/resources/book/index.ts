@@ -7,5 +7,6 @@ export default class Book extends Resource {
 
   public setupRoutes(): void {
     this.router.post('/', this.controller.create);
+    this.router.patch('/:bookId', this.controller.update);
   }
 }
