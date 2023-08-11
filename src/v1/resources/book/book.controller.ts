@@ -65,4 +65,32 @@ export default class BookController extends Controller {
 
     res.exec();
   };
+
+  public search = async (req: Request, res: Response) => {
+    const {
+      query: {
+        isbn,
+        author,
+        title,
+        genre,
+        publicationDate,
+        price,
+        quantity,
+      },
+    } = req;
+
+    req.message = 'Searched books';
+    req.operation = this.service.search;
+    req.args = {
+      isbn,
+      author,
+      title,
+      genre,
+      publicationDate,
+      price,
+      quantity,
+    };
+
+    res.exec();
+  };
 }

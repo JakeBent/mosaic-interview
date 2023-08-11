@@ -33,4 +33,24 @@ declare global {
     price: number,
     quantity: number,
   }
+
+  export interface BookSearchDTO {
+    isbn: string,
+    author: string,
+    title: string,
+    genre: string,
+    publicationDate: Date,
+    price: number,
+    quantity: number,
+  }
+
+  export interface BookSearchQuery {
+    isbn?: string,
+    author?: { $regex: string, $options: string },
+    title?: { $regex: string, $options: string },
+    genre?: { $regex: string, $options: string },
+    publicationDate?: date,
+    price?: number,
+    quantity?: number,
+  }
 }

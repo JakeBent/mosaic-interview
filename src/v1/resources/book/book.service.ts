@@ -57,4 +57,28 @@ export default class BookService extends Service {
 
     return book;
   };
+
+  public search = async ({
+    isbn,
+    author,
+    title,
+    genre,
+    publicationDate,
+    price,
+    quantity,
+  }: BookSearchDTO) => {
+    const query: BookSearchQuery = {};
+
+    if (isbn) query.isbn = isbn;
+    if (author) query.author = { $regex: `.*${author}.*`, $options: 'i' };
+    if (title) query.title = { $regex: `.*${title}.*`, $options: 'i' };
+    if (genre) query.genre = { $regex: `.*${genre}.*`, $options: 'i' };
+    if (publicationDate) query.publicationDate = publicationDate;
+    if (price) query.price = price;
+    if (quantity) query.quantity = quantity;
+
+    const results = await this.Book.find(query);
+
+    return results;
+  };
 }
