@@ -12,7 +12,6 @@ export default class UserService extends Service {
     password,
     firstName,
     lastName,
-    orgName,
   }: UserSignupDTO) => {
     const existingUser = await this.User.findOne({ email });
 
@@ -27,22 +26,7 @@ export default class UserService extends Service {
       lastName,
     });
 
-    let org = await this.Organization.findOne({ name: orgName });
-
-    if (org) {
-      org.requestedMembers.addToSet(user.id);
-      await org.save();
-    } else {
-      org = await this.Organization.create({
-        name: orgName,
-        admins: [user.id],
-      });
-
-      user.organizations.addToSet(org.id);
-      await user.save();
-    }
-
-    const payload: TokenPayload = { user, activeOrg: org };
+    const payload: TokenPayload = { user };
     const token = jwt.sign(
       payload,
       this.config.jwtSecret,
@@ -64,7 +48,6 @@ export default class UserService extends Service {
 
     const {
       password: hash,
-      organizations,
     } = user;
 
     if (!hash) {
@@ -76,13 +59,6 @@ export default class UserService extends Service {
     }
 
     const payload: TokenPayload = { user };
-
-    if (organizations.length > 0) {
-      const org = await this.Organization.findById(organizations[0]);
-      if (org) {
-        payload.activeOrg = org;
-      }
-    }
 
     const token = jwt.sign(
       payload,

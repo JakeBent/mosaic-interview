@@ -8,7 +8,6 @@ declare global {
       message?: string;
       successCode?: number;
       user?: User;
-      activeOrg?: Organization;
       token?: string;
     }
 
@@ -19,7 +18,6 @@ declare global {
 
   export interface TokenPayload {
     user?: User;
-    activeOrg?: Organization;
     iat?: number;
     exp?: number;
   }

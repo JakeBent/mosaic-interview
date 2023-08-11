@@ -22,10 +22,9 @@ export default function userAuth(
   let payload: TokenPayload;
   try {
     payload = jwt.verify(token as string, config.jwtSecret) as TokenPayload;
-    const { user, activeOrg } = payload;
+    const { user } = payload;
 
     req.user = user;
-    req.activeOrg = activeOrg;
 
     delete payload.iat;
     delete payload.exp;
