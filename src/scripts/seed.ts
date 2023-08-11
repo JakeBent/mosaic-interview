@@ -1,5 +1,7 @@
 /* eslint-disable no-plusplus */
 
+import fs from 'fs';
+import path from 'path';
 import Chance from 'chance';
 import mongoose from 'mongoose';
 import Config from '@config';
@@ -49,6 +51,11 @@ const run = async () => {
   const books = await Book.create(bookInfos);
 
   logger.success(`created ${books.length} books`);
+
+  logger.info('saving generated books JSON file...');
+  const filePath = path.resolve(__dirname, 'seedJSON', `book-seed-${new Date().toISOString()}`);
+  fs.writeFileSync(filePath, JSON.stringify(bookInfos));
+  logger.success(`saved generated books JSON file to ${filePath}`);
 
   process.exit(0);
 };
