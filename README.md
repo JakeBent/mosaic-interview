@@ -7,3 +7,7 @@
 3. `cp .env.example .env`
 4. `yarn db` in a separate terminal
 5. `yarn start`
+
+## seeding the DB
+
+1. `yarn db:seed`

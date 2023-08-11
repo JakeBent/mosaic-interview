@@ -1,0 +1,118 @@
+{
+	"info": {
+		"_postman_id": "48198243-6cb6-47d3-8487-6d7566fc2c05",
+		"name": "mosaic interview api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1329320",
+		"_collection_link": "https://dark-meteor-790260.postman.co/workspace/skinapse~a30230a3-eeca-4b0a-bd9b-4c14dc4fa639/collection/1329320-48198243-6cb6-47d3-8487-6d7566fc2c05?action=share&creator=1329320&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "/v1/books",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"isbn\": \"1234567890124\",\n    \"author\": \"Jake Benton\",\n    \"title\": \"The way of code\",\n    \"genre\": \"self-help\",\n    \"publicationDate\": \"2022-08-01T00:00:00.000Z\",\n    \"price\": \"15.00\",\n    \"quantity\": \"1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3001/v1/books",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"v1",
+						"books"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/v1/books/:bookId",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"isbn\": \"1234567890125\",\n    \"author\": \"Trogdor\",\n    \"title\": \"The way of the code\",\n    \"genre\": \"self-help\",\n    \"publicationDate\": \"2021-08-01T00:00:00.000Z\",\n    \"price\": \"14.99\",\n    \"quantity\": \"10\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3001/v1/books/64d6446f417be93e359f7e04",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"v1",
+						"books",
+						"64d6446f417be93e359f7e04"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/v1/books/search",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3001/v1/books/search?genre=help&author=trogdor",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"v1",
+						"books",
+						"search"
+					],
+					"query": [
+						{
+							"key": "genre",
+							"value": "help"
+						},
+						{
+							"key": "author",
+							"value": "trogdor"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/v1/books/:bookId",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3001/v1/books/64d6446f417be93e359f7e04",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"v1",
+						"books",
+						"64d6446f417be93e359f7e04"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
