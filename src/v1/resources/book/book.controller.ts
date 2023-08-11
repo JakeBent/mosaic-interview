@@ -93,4 +93,16 @@ export default class BookController extends Controller {
 
     res.exec();
   };
+
+  public delete = async (req: Request, res: Response) => {
+    const {
+      params: { bookId },
+    } = req;
+
+    req.message = 'Deleted book';
+    req.operation = this.service.delete;
+    req.args = { bookId };
+
+    res.exec();
+  };
 }

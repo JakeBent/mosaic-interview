@@ -34,6 +34,10 @@ declare global {
     quantity: number,
   }
 
+  export interface BookDeleteDTO {
+    bookId: string;
+  }
+
   export interface BookSearchDTO {
     isbn: string,
     author: string,

@@ -9,5 +9,6 @@ export default class Book extends Resource {
     this.router.post('/', this.controller.create);
     this.router.patch('/:bookId', this.controller.update);
     this.router.get('/search', this.controller.search);
+    this.router.delete('/:bookId', this.controller.delete);
   }
 }

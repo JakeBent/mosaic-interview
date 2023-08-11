@@ -81,4 +81,12 @@ export default class BookService extends Service {
 
     return results;
   };
+
+  public delete = async ({
+    bookId,
+  }: BookDeleteDTO) => {
+    await this.Book.findByIdAndDelete(bookId);
+
+    return 'OK';
+  };
 }
