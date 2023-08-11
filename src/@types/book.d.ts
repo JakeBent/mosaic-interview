@@ -39,6 +39,7 @@ declare global {
   }
 
   export interface BookSearchDTO {
+    page: number;
     isbn: string,
     author: string,
     title: string,
