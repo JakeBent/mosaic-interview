@@ -18,7 +18,7 @@ export default class Config {
   public jwtOptions = { expiresIn: '72h' };
 
   // DB
-  public mongoUri = process.env.MONGO_URI ?? 'mongodb://localhost:27017/citysuites';
+  public mongoUri = process.env.MONGO_URI ?? 'mongodb://localhost:27017/boilerplate';
   public modelOptions = {
     timestamps: true,
     toJSON: {

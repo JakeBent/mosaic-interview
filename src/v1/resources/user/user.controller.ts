@@ -5,7 +5,7 @@ import UserService from './user.service';
 export default class UserController extends Controller {
   public service = new UserService();
 
-  public signup = async (req: Request<{}, {}, UserSignupDTO>, res: Response) => {
+  public signup = async (req: Request, res: Response) => {
     const {
       body: {
         email,
