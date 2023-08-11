@@ -20,5 +20,10 @@
       "@errors": ["commmon/errors"],
       "@base": ["v1/resources/base"]
     }
-  }
+  },
+  "files": [
+    "src/@types/book.d.ts",
+    "src/@types/index.d.ts",
+    "src/@types/user.d.ts",
+  ]
 }
