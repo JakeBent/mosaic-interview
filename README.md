@@ -1,4 +1,4 @@
-# City Suites API
+# Mosaic API
 
 ## Installation
 
