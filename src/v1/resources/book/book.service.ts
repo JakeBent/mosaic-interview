@@ -85,6 +85,9 @@ export default class BookService extends Service {
   public delete = async ({
     bookId,
   }: BookDeleteDTO) => {
+    // Should i potentially just decrement quantity if
+    // the book has a quantity greater than 1?
+
     await this.Book.findByIdAndDelete(bookId);
 
     return 'OK';
