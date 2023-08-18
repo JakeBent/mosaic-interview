@@ -83,6 +83,12 @@ export default class BookService extends Service {
 
     const results = await this.Book
       .find(query)
+      .populate({
+        path: 'storeBooks',
+        populate: {
+          path: 'store',
+        },
+      })
       .limit(pageSize)
       .skip(page);
 
