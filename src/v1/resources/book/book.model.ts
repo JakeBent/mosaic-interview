@@ -13,7 +13,6 @@ const bookSchema = new mongoose.Schema({
   genre: String,
   publicationDate: Date,
   price: Number,
-  quantity: Number,
 }, Config.sharedConfig.modelOptions);
 
 export default mongoose.model<Book>('Book', bookSchema);
