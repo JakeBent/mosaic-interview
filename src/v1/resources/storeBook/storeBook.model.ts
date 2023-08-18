@@ -8,6 +8,10 @@ const storeBookSchema = new mongoose.Schema({
     type: mongoose.Types.ObjectId,
     ref: 'Book',
   },
+  store: {
+    type: mongoose.Types.ObjectId,
+    ref: 'Store',
+  },
 }, Config.sharedConfig.modelOptions);
 
 export default mongoose.model<StoreBook>('StoreBook', storeBookSchema);

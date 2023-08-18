@@ -1,4 +1,4 @@
-import { Document } from 'mongoose';
+import { Document, Types } from 'mongoose';
 
 export {};
 
@@ -11,6 +11,7 @@ declare global {
     publicationDate: Date,
     price: number,
     quantity: number,
+    storeBooks: Types.DocumentArray<StoreBook>,
   }
 
   export interface BookCreateDTO {
