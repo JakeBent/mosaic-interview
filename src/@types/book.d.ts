@@ -9,8 +9,8 @@ declare global {
     title: string,
     genre: string,
     publicationDate: Date,
-    price: number,
-    quantity: number,
+    price?: number,
+    quantity?: number,
     storeBooks: Types.DocumentArray<StoreBook>,
   }
 

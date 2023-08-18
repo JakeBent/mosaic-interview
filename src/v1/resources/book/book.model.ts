@@ -12,7 +12,6 @@ const bookSchema = new mongoose.Schema({
   title: String,
   genre: String,
   publicationDate: Date,
-  price: Number,
   storeBooks: [{
     type: mongoose.Types.ObjectId,
     ref: 'StoreBook',
